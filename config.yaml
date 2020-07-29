@@ -1,8 +1,8 @@
-api: "5e5b408f8f30606bfe8e4877890de1c632188"
-email: "ofsanlialp@gmail.com"
-zoneID: "3abfce9b8db2f1ba6c15285dcdaf302c"
-recordID: "4f7581e8f7361d9bba038e32712f4ed9"
+api: "API_KEY"
+email: "CLOUDFLARE_EMAIL"
+zoneID: "ZONE_ID"
+recordID: "RECORD_ID"
 
-type: "A"
-name: "home.revieweclipse.com"
+type: "RECORD_TYPE"
+name: "RECORD_NAME"
 proxied: False
