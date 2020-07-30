@@ -1,7 +1,7 @@
-api: "API_KEY"
-email: "CLOUDFLARE_EMAIL"
-zoneID: "ZONE_ID"
-recordID: "RECORD_ID"
+api: "API_KEY"   # Get Cloudflare API Key: https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key-
+email: "CLOUDFLARE_EMAIL" # Your cloudflare account email address
+zoneID: "ZONE_ID"  # Your zone id is located on the main cloudflare domain dashboard
+recordID: "RECORD_ID" # Run script once without this set and it'll retrive a list of records for you to find the ID to update here
 
 type: "RECORD_TYPE"
 name: "RECORD_NAME"
