@@ -207,6 +207,41 @@ You can modify cronetab time depends on below information.
   "0,2,4,6,8,10,12,14,16,18,20,22"); value "*/4" in Minute field means that the action should be performed 
   every 4 minutes, "1-30/3" means the same as "1,4,7,10,13,16,19,22,25,28".
  
+Automate Your Script to Run After Every Reboot
+----------------------------------------------
+
+If you want to run your script after each reboot, also you should add following command into your cromtab file:
+ 
+.. code-block:: bash
+
+  @reboot sleep 2m cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py
+
+Your script should run after your system rebooted and wait ``2 minute``
+
+
+Check Cron Job
+-----------------------
+To check whether your cron job runs or not, you can use following command to check system log
+
+ ``$ grep CRON /var/log/syslog``
+
+**Ouput**
+
+.. code-block:: bash
+
+  Jul 30 15:30:01 ubuntuking CRON[28233]: (USERNAME) CMD (cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py )
+  Jul 30 15:30:03 ubuntuking CRON[28232]: (CRON) info (No MTA installed, discarding output)
+  Jul 30 15:40:01 ubuntuking CRON[28251]: (USERNAME) CMD (cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py )
+  Jul 30 15:40:01 ubuntuking CRON[28250]: (CRON) info (No MTA installed, discarding output)
+ 
+ 
+My Cromtab Settings
+----------------------------------------------
+  
+.. code-block:: bash
+
+  */10 * * * * cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py
+  @reboot sleep 1m cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py
 
 
 
