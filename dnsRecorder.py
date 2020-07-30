@@ -7,15 +7,10 @@ with open('config.yaml') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
 
-# XXX Settings you need to update!!!
 IP_API = 'https://api.ipify.org?format=json'
-# Get Cloudflare API Key: https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key-
 API_KEY = config['api']
-# Your cloudflare account email address
 EMAIL = config['email']
-# Your zone id is located on the main cloudflare domain dashboard
 ZONE_ID = config['zoneID']
-# Run script once without this set and it'll retrive a list of records for you to find the ID to update here
 RECORD_ID = config['recordID']
 
 
