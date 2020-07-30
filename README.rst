@@ -29,7 +29,7 @@ Please follow each step to install our script
 |                                   | | ``$ sudo apt-get upgrade``                                              |
 +-----------------------------------+---------------------------------------------------------------------------+
 | **Install python**                | | ``$ sudo apt install python3``                                          |
-|                                   | | ``$ sudo python3 --version``                                             |
+|                                   | | ``$ sudo python3 --version``                                            |
 +-----------------------------------+---------------------------------------------------------------------------+
 | **Install python pip**            | | ``$ curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py``     |
 |                                   | | ``$ sudo python3 get-pip.py``                                           |
