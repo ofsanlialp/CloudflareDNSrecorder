@@ -61,7 +61,7 @@ To do that please follow the steps:
 config.yaml
 ----------------------
 
-==> Please fill following data which is mentinod Uppercase with your own data!!!
+==> Please fill following data, which is mentinod Uppercase, with your own data!!!
 
 ==> If you want to proxied your DNS, change proxied to True
 
@@ -160,6 +160,58 @@ Now you should see an output like:
 .. code-block:: bash
 
   Updated DNS record of ===> home.mydomain.com to ===> 72.10.39.12
+
+Automate Your Script
+-----------------------
+The purpose of this python script is to update your dynamic IP for public access to your home device/server.
+So you might want to run this script every ``5`` min to update your domain public IP on cloudflare.
+To do that, you should setup a cron job.
+
+``$ crontab -e``
+
+Than add the following commad. Please change **USERNAME** depends on your script location.
+Also you should make sure you are using correct python location with version to runs script. 
+
+.. code-block:: bash
+
+  */5 * * * * cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py
+
+If you are not sure which version is your python, run following command:
+
+``$ whereis python3``
+
+You will get something like: 
+
+.. code-block:: bash
+ 
+ python3: /usr/bin/python3.8 /usr/bin/python3 /usr/bin/python3.8-config /usr/lib/python3.8 /usr/lib/python3 /etc/python3.8 /etc/python3 /usr/local/lib/python3.8 /usr/include/python3.8 /usr/share/python3 /usr/share/man/man1/python3.1.gz
+ 
+You can use  **/usr/bin/python3.8**
+ 
+You can modify cronetab time depends on below information. 
+
+.. code-block:: bash
+ 
+   * * * * * * cd /home/USERNAME/myscripts/CloudflareDNSrecorder && /usr/bin/python3 dnsRecorder.py
+  | | | | | | 
+  | | | | | +-- Year              (range: 1900-3000)
+  | | | | +---- Day of the Week   (range: 1-7, 1 standing for Monday)
+  | | | +------ Month of the Year (range: 1-12)
+  | | +-------- Day of the Month  (range: 1-31)
+  | +---------- Hour              (range: 0-23)
+  +------------ Minute            (range: 0-59)
+  
+  After an asterisk (*) or a range of values, you can use character / to specify that values are repeated over 
+  and over with a certain interval between them. For example, you can write "0-23/2" in Hour field to specify 
+  that some action should be performed every two hours (it will have the same effect as 
+  "0,2,4,6,8,10,12,14,16,18,20,22"); value "*/4" in Minute field means that the action should be performed 
+  every 4 minutes, "1-30/3" means the same as "1,4,7,10,13,16,19,22,25,28".
+ 
+
+
+
+
+  
 
 
 .. |Banner| image:: https://images.ctfassets.net/slt3lc6tev37/34xd1mOl6rY52cbvovdrCw/0401ddbe0ecbaae491dd007858d8a799/hc-import-ssl_tls_mode_off.png
